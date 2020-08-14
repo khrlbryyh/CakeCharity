@@ -1,0 +1,126 @@
+#include <iostream>
+using namespace std;
+
+class CakeCharity {
+private:
+    string cakeCode;
+    double cakePerPrice;
+    double cakeAmount;
+public:
+
+    CakeCharity(){
+        cakeCode = "Invalid cake code!";
+        cakePerPrice = 0.00;
+        cakeAmount = 0;
+        cakeProfit = 0.0;
+    }
+
+    CakeCharity(string aCakeCode, double aCakePerPrice){
+        setCakeCode(aCakeCode);
+        setCakePerPrice(aCakePerPrice);
+    }
+
+    //setter
+    void setCakeCode(string aCakeCode){
+        if(aCakeCode=="CC1" || aCakeCode=="CC2" || aCakeCode=="CC3" || aCakeCode=="CC4"){
+            cakeCode=aCakeCode;
+        }
+        else{
+            cakeCode="Invalid code!";
+        }
+    }
+    void setCakePerPrice(double aCakePerPrice){
+        cakePerPrice = aCakePerPrice;
+    }
+    void setCakeAmount(int aCakeAmount){
+        cakeAmount = aCakeAmount;
+    }
+
+    //getter
+    string getCakeCode(){
+        return cakeCode;
+    }
+    double getCakePerPrice(){
+        return cakePerPrice;
+    }
+    int getCakeAmount(){
+        return cakeAmount;
+    }
+    double getCakeProfit(){
+        return cakeProfit;
+    }
+
+};
+
+void welcomeCharity();
+void readCharity(CakeCharity CC1, CakeCharity CC2, CakeCharity CC3, CakeCharity CC4);
+
+int main(){
+    welcomeCharity();
+
+    CakeCharity CC1("CC1", 50);
+    CakeCharity CC2("CC2", 25.5);
+    CakeCharity CC3("CC3", 10);
+    CakeCharity CC4("CC4", 5);
+
+    readCharity(CC1, CC2, CC3, CC4);
+    //CakeCharity cakeProfit()
+
+    CakeCharity calcCake(double totalPrice);
+}
+
+void welcomeCharity(){
+    cout << "  *************************************" << endl;
+    cout << "               CAKE CHARITY" << endl;
+    cout << "  *************************************" << endl;
+    cout << endl;
+    cout << "  _____________________________________" << endl;
+    cout << "  CAKE			CODE     PRICE" << endl;
+    cout << "  _____________________________________" << endl;
+    cout << "  BLACKFOREST PREMIUM 	 CC1      50" << endl;
+    cout << "  PANDAN CHEESE		 CC2      25.5" << endl;
+    cout << "  BROWNIES KEDUT	 CC3      10" << endl;
+    cout << "  CHOCOLATE MOIST	 CC4      5" << endl;
+    cout << "  _____________________________________\n" << endl;
+}
+
+void readCharity(CakeCharity CC1, CakeCharity CC2, CakeCharity CC3, CakeCharity CC4){
+    string cakeCode;
+    double cakePerPrice, totalPrice;
+    int cakeAmount;
+    for (int i=0; i<4; i++){
+        cout << "  Cake Code (CC1/CC2/CC3/CC4): ";
+        cin >> cakeCode;
+        if (cakeCode == "CC1"){
+            CC1.setCakeCode("CC1");
+            cout << "  Amount of cake: ";
+            cin >> cakeAmount;
+            CC1.setCakeAmount(cakeAmount);
+        } else if (cakeCode == "CC2"){
+            CC2.setCakeCode("CC2");
+            cout << "  Amount of cake: ";
+            cin >> cakeAmount;
+            CC2.setCakeAmount(cakeAmount);
+        } else if (cakeCode == "CC3"){
+            CC3.setCakeCode("CC3");
+            cout << "  Amount of cake: ";
+            cin >> cakeAmount;
+            CC3.setCakeAmount(cakeAmount);
+        } else if (cakeCode == "CC4"){
+            CC4.setCakeCode("CC4");
+            cout << "  Amount of cake: ";
+            cin >> cakeAmount;
+            CC4.setCakeAmount(cakeAmount);
+        } else {
+            cout << "  invalid!!" << endl;
+        }
+    }
+
+    cout << "  _____________________________________" << endl;
+
+    totalPrice = ((CC1.getCakePerPrice() * CC1.getCakeAmount()) + (CC2.getCakePerPrice() * CC2.getCakeAmount()) + (CC3.getCakePerPrice() * CC3.getCakeAmount()) + (CC4.getCakePerPrice() * CC4.getCakeAmount()));
+
+    cout << "\n  Your total cake price is " << totalPrice;
+
+}
+
