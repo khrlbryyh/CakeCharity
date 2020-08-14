@@ -12,7 +12,6 @@ public:
         cakeCode = "Invalid cake code!";
         cakePerPrice = 0.00;
         cakeAmount = 0;
-        cakeProfit = 0.0;
     }
 
     CakeCharity(string aCakeCode, double aCakePerPrice){
@@ -46,9 +45,6 @@ public:
     int getCakeAmount(){
         return cakeAmount;
     }
-    double getCakeProfit(){
-        return cakeProfit;
-    }
 
 };
 
@@ -64,9 +60,6 @@ int main(){
     CakeCharity CC4("CC4", 5);
 
     readCharity(CC1, CC2, CC3, CC4);
-    //CakeCharity cakeProfit()
-
-    CakeCharity calcCake(double totalPrice);
 }
 
 void welcomeCharity(){
