@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int num1, num2;
+    char op;
+
+    cout << "Enter first num: ";
+    //getline(cin, num1);
+    cin >> num1;
+    cout << "Enter operator: ";
+    //getline(cin, op);
+    cin >> op;
+    cout << "Enter second num: ";
+    //getline(cin, num2);
+    cin >> num2;
+
+    if (op=='+'){
+        cout << "The answer is: " << num1 + num2;
+    }
+    else if (op=='-'){
+        cout << "The answer is: " << num1 - num2;
+    }
+    else if (op=='*'){
+        cout << "The answer is: " << num1 * num2;
+    }
+    else if (op=='/'){
+        cout << "The answer is: " << num1 / num2;
+    }
+    else
+        cout << "invalid!";
+}
